@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="LayoutFacetingExample" project="seleniumProject" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="seleniumProject.LayoutFacetingExample" time="4.464" displayname="LayoutFacetingExample" uniqueid="[engine:junit-vintage]/[runner:seleniumProject.LayoutFacetingExample]">
+    <testcase name="layout" classname="seleniumProject.LayoutFacetingExample" time="4.464" displayname="layout" uniqueid="[engine:junit-vintage]/[runner:seleniumProject.LayoutFacetingExample]/[test:layout(seleniumProject.LayoutFacetingExample)]"/>
+  </testsuite>
+</testrun>

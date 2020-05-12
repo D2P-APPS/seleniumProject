@@ -1,0 +1,84 @@
+package seleniumProject;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+ public class LayoutFacetingExample {
+	WebDriver driver;
+
+public class Chrome {
+
+	public void main(String[] args) {
+
+	System.setProperty("webdriver.chrome.driver","/Users/gweng/Desktop/Development/drivers/chromedriver");
+	driver = new ChromeDriver();
+	driver.get("http://localhost:4200/search");	
+	}
+@Test
+	public void layout(){
+	
+//	System.setProperty("webdriver.chrome.driver","/Users/gweng/Desktop/Development/drivers/chromedriver");
+//	driver = new ChromeDriver();
+//	driver.get("http://localhost:4200/search");	
+	
+	//Find Document Analytics Tool Image
+	driver.findElement(By.xpath("//mat-icon[contains(text(),'fingerprint')]"));
+	
+	//Right Frame
+	//Genre of Docs
+	driver.findElement(By.xpath("//div[@class='mat-subheader'][text()='Genre']"));	
+//	//Non-fiction check box and number of Docs
+//	driver.findElement(By.xpath("//span[text()=' Non-fiction (5) ']"));
+//	//Fiction check box and number of Docs
+//	driver.findElement(By.xpath("//span[text()=' Fiction (2) ']"));
+//	//Comedy check box and number of Docs
+//	driver.findElement(By.xpath("//span[text()=' Comedy (1) ']"));
+//	//Actions check box and number of Docs
+//	driver.findElement(By.xpath("//span[text()=' Action (3) ']"));
+//	//Mystery check box and number of Docs
+//	driver.findElement(By.xpath("//span[text()=' Mystery(1) ']"));
+	
+	//Author of Docs
+	driver.findElement(By.xpath("//div[@class='mat-subheader'][text()='Author']"));
+	
+	//Middle Frame
+	//List of Results
+	driver.findElement(By.xpath("//div[@class='col results']"));
+	//Book #1 result
+	//Title
+	driver.findElement(By.xpath("//h3[text()=' BOOK #1 ']"));
+	//Author:
+	driver.findElement(By.xpath("//div[@class='result-info-section'][text()='Author: ']"));
+	//Genre:
+	driver.findElement(By.xpath("//div[@class='result-info-section'][text()='Genre: ']"));
+	//Matches Button
+	driver.findElement(By.xpath("//button[@mattooltip='Show/hide matches'][@ng-reflect-disabled='false']"));
+	//Match Badge
+	driver.findElement(By.id("mat-badge-content-0"));
+	
+	//Left Frame
+	
+	
+	
+	
+	
+	
+	
+	
+//	driver.findElement(By.id("twotabsearchtextbox")).sendKeys(Keys.RETURN);
+//	
+//	//Pause
+//	Thread.sleep(3000);
+//	//Validate results returned	
+//	driver.findElement(By.xpath("//span[contains(text(),'Military Tactical Flashlight Waterproof')]"));
+	
+	//Close
+	driver.close();
+	
+	}	
+}
+}
+	

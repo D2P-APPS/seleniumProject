@@ -1,0 +1,75 @@
+package seleniumProject;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+ public class NavigateFacetingExample {
+	WebDriver driver;
+
+@Test
+	
+public void navigate() throws InterruptedException {
+	
+	System.setProperty("webdriver.chrome.driver","/Users/gweng/Desktop/Development/drivers/chromedriver");
+	driver = new ChromeDriver();
+	driver.get("http://localhost:4200/search");	
+	
+	Thread.sleep(2000);
+
+	//Right Frame
+	//Book Genre check box and number of Docs
+	driver.findElement(By.xpath("//span[text()=' Mystery(1) ']")).click();
+	
+	//Middle Frame
+	//Validate results
+	//Doc Title
+	driver.findElement(By.xpath("//h3[text()=' BOOK #4 ']"));
+	//Author:
+	driver.findElement(By.xpath("//div[text()='Author: ']/span[text()='George R.R. Martin']"));
+	//Genre:
+	driver.findElement(By.xpath("//div[text()='Genre: ']/span[text()='Mystery']"));
+	//Matches Button
+	driver.findElement(By.xpath("//button[@mattooltip='Show/hide matches'][@ng-reflect-disabled='true']"));
+	//Match Badge not present
+	Assert.assertEquals(0, driver.findElements(By.id("mat-badge-content-0")).size());
+	
+	//Left Frame
+	//Document View
+	//Doc Title
+	driver.findElement(By.xpath("//div[@class='doc-title']"));
+	//Show OCR Text Toogle
+	driver.findElement(By.xpath("//div[@class='mat-slide-toggle-bar']/input[@aria-checked='false']"));
+	//Tool Bar
+	//Outline View Icon
+	driver.findElement(By.xpath("//button[@aria-label='Toggle outline'][@ng-reflect-message='Open outline']"));
+	//Page Navigation
+	driver.findElement(By.xpath("//div[@class='page-nav']"));
+	//Search Icon
+	driver.findElement(By.xpath("//mat-icon[text()='search']"));
+	//Rotate Icon
+	driver.findElement(By.xpath("//mat-icon[text()='rotate_right']"));
+	//Zoom In Icon
+	driver.findElement(By.xpath("//mat-icon[text()='zoom_in']"));
+	//Zoom Out Icon
+	driver.findElement(By.xpath("//mat-icon[text()='zoom_out']"));
+	//Edit Icon
+	driver.findElement(By.xpath("//mat-icon[text()='edit']"));
+	//More Option Icon
+	driver.findElement(By.xpath("//mat-icon[text()='more_vert']"));
+	//Document Page View
+	driver.findElement(By.id("page1"));
+	//Previous Page disabled
+	driver.findElement(By.xpath("//button[@class='mat-focus-indicator mat-flat-button mat-button-base mat-primary'][@disabled='true']"));
+	//Next Page enabled
+	driver.findElement(By.xpath("//button[@class='mat-focus-indicator mat-flat-button mat-button-base mat-primary'][@ng-reflect-disabled='false']"));
+	
+	//Close
+	driver.close();
+	
+	}		
+	
+}

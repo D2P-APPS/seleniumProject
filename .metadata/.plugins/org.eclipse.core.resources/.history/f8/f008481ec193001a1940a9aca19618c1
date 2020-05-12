@@ -1,0 +1,75 @@
+package seleniumProject;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+ public class NavigateFacetingExample {
+	WebDriver driver;
+
+@Test
+	
+public void navigate() throws InterruptedException {
+	
+	System.setProperty("webdriver.chrome.driver","/Users/gweng/Desktop/Development/drivers/chromedriver");
+	driver = new ChromeDriver();
+	driver.get("http://localhost:4200/search");	
+	
+	Thread.sleep(2000);
+	
+	//Match Badge
+	driver.findElement(By.xpath("//button[@mattooltip='Show/hide matches'][@ng-reflect-disabled='false']")).click();	
+	//Matches Results
+	driver.findElement(By.xpath("//div[@class='matches ng-star-inserted']"));
+	//Matrix Button
+	driver.findElement(By.xpath("//a[@class='mat-focus-indicator mat-stroked-button mat-button-base']")).click();
+	
+	
+	
+	
+	
+
+	//Mystery Gene check box
+	driver.findElement(By.xpath("//span[text()=' Mystery(1) ']")).click();
+	
+	//Validate results 
+	//Doc Title
+	driver.findElement(By.xpath("//h3[text()=' BOOK #4 ']"));
+	//Author:
+	driver.findElement(By.xpath("//div[text()='Author: ']/span[text()='George R.R. Martin']"));
+	//Genre:
+	driver.findElement(By.xpath("//div[text()='Genre: ']/span[text()='Mystery']"));
+	//Matches Button
+	driver.findElement(By.xpath("//button[@mattooltip='Show/hide matches'][@ng-reflect-disabled='true']"));
+	//Match Badge not present
+	Assert.assertEquals(0, driver.findElements(By.id("mat-badge-content-0")).size());
+	
+	//Doc Title
+	driver.findElement(By.xpath("//h3[text()=' BOOK #4 ']")).click();
+
+	//Document View
+	//Doc Title
+	driver.findElement(By.xpath("//h2[text()='BOOK #4']"));
+
+
+	//Mystery Gene check box
+	driver.findElement(By.xpath("//span[text()=' Mystery(1) ']")).click();
+	
+	
+	
+	
+	//Document Page View
+	driver.findElement(By.id("page1"));
+	//Previous Page disabled
+	driver.findElement(By.xpath("//button[@class='mat-focus-indicator mat-flat-button mat-button-base mat-primary'][@disabled='true']"));
+	//Next Page enabled
+	driver.findElement(By.xpath("//button[@class='mat-focus-indicator mat-flat-button mat-button-base mat-primary'][@ng-reflect-disabled='false']"));
+	
+	//Close
+	driver.close();
+	
+	}		
+	
+}
